@@ -18,6 +18,7 @@ pytest-black = "^0.3.12"
 pytest = "^7.1.2"
 requests = "^2.28.0"
 cryptojwt = "^1.8.3"
+pylama = "^8.3.8"
 
 [tool.isort]
 profile = "black"
