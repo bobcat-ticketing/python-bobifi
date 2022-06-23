@@ -7,12 +7,14 @@ This repository contains a Python module with the current [BoB](https://bob.samt
 
 ### Swedish Test Environment
 
-    from bobifi.samtrafiken.test import trusted_jwks, metadata_url
+    from bobifi.samtrafiken.test import trusted_jwks, metadata_url, where
     print(trusted_jwks())
+    print(where())
     print(metadata_url())
 
 ### Swedish Production Environment
 
-    from bobifi.samtrafiken.prod import trusted_jwks, metadata_url
+    from bobifi.samtrafiken.prod import trusted_jwks, metadata_url, where
     print(trusted_jwks())
+    print(where())
     print(metadata_url())

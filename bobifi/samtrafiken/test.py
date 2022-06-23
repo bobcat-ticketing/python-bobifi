@@ -2,7 +2,7 @@ import json
 
 from .. import DATADIR
 
-_JWKS_FILE = DATADIR / "samtrafiken-test.json"
+_JWKS_FILE = str(DATADIR / "samtrafiken-test.json")
 _JWKS_DICT = json.load(open(_JWKS_FILE))
 
 _METADATA_URL = "https://bobmetadata-pp.samtrafiken.se/api/v2/participantMetadata"
