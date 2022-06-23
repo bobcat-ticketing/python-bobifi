@@ -4,7 +4,7 @@ version = "2022.6.23"
 description = "BoB Metadata Keys and URLs"
 authors = ["Jakob Schlyter <jakob@kirei.se>"]
 license = "BSD-2-Clause"
-repository = "https://github.com/kirei/bobifi'"
+repository = "https://github.com/kirei/python-bobifi'"
 include = ["bobifi/data/*.json"]
 
 [tool.poetry.dependencies]
