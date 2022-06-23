@@ -5,16 +5,16 @@ This repository contains a Python module with the current [BoB](https://bob.samt
 
 ## Usage
 
-### Swedish Test Environment
-
-    from bobifi.samtrafiken.test import trusted_jwks, metadata_url, where
-    print(trusted_jwks())
-    print(where())
-    print(metadata_url())
-
 ### Swedish Production Environment
 
-    from bobifi.samtrafiken.prod import trusted_jwks, metadata_url, where
+    from bobifi.samtrafiken import trusted_jwks, metadata_url, where
     print(trusted_jwks())
     print(where())
     print(metadata_url())
+
+### Swedish Test Environment
+
+    from bobifi.samtrafiken import trusted_jwks, metadata_url, where
+    print(trusted_jwks(env="test"))
+    print(where(env="test"))
+    print(metadata_url(env="test"))
