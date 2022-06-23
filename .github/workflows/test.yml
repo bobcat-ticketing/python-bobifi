@@ -33,7 +33,7 @@ jobs:
         run: poetry install
       - name: Lint
         run: |
-          poetry run pylama
+          poetry run pylama bobifi
       - name: Pytest
         run: |
           poetry run pytest --isort --black
