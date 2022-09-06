@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "bobifi"
-version = "2022.7.15"
+version = "2022.9.6"
 description = "BoB Metadata Keys and URLs"
 authors = ["Jakob Schlyter <jakob@kirei.se>"]
 license = "BSD-2-Clause"
