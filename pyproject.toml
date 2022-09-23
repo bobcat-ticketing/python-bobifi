@@ -21,9 +21,15 @@ requests = "^2.28.0"
 cryptojwt = "^1.8.3"
 pylama = "^8.3.8"
 
-[tool.isort]
-profile = "black"
-
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.isort]
+profile = "black"
+
+[tool.pylama.linter.pycodestyle]
+max_line_length = 120
+
+[tool.pylama.linter.mccabe]
+complexity = 40
