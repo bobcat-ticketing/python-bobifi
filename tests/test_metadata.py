@@ -1,17 +1,19 @@
+import httpx
 import pytest
-import requests
 
 from bobifi.samtrafiken import metadata_url
 
 
 def test_metadata_test():
-    _ = requests.get(metadata_url(env="test", version=1))
-    _ = requests.get(metadata_url(env="test", version=2))
+    with httpx.Client() as client:
+        _ = client.get(metadata_url(env="test", version=1))
+        _ = client.get(metadata_url(env="test", version=2))
 
 
 def test_metadata_prod():
-    _ = requests.get(metadata_url(env="prod", version=1))
-    _ = requests.get(metadata_url(env="prod", version=2))
+    with httpx.Client() as client:
+        _ = client.get(metadata_url(env="prod", version=1))
+        _ = client.get(metadata_url(env="prod", version=2))
 
 
 def test_metadata_version():
@@ -25,4 +27,4 @@ def test_metadata_version():
 
 def test_metadata_unknown():
     with pytest.raises(KeyError):
-        _ = requests.get(metadata_url(env="xyzzy"))
+        _ = httpx.get(metadata_url(env="xyzzy"))
