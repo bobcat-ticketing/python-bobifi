@@ -9,7 +9,7 @@ from bobifi.samtrafiken import metadata_url, trusted_jwks
 def verify_metadata(env: str, content: str):
     jws = JWS()
     trusted_keys = [key_from_jwk_dict(k) for k in trusted_jwks(env=env)["keys"]]
-    metadata = jws.verify_json(content, keys=trusted_keys, at_least_one=True)
+    _ = jws.verify_json(content, keys=trusted_keys, at_least_one=True)
 
 
 def test_metadata_test():
