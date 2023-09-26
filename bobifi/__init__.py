@@ -1,8 +1,7 @@
 import os
+from importlib.metadata import version
 from pathlib import Path
 
-import pkg_resources
-
-__version__ = pkg_resources.get_distribution("bobifi").version
+__version__ = version("bobifi")
 
 DATADIR = Path(os.path.abspath(os.path.dirname(__file__))) / "data"
