@@ -12,7 +12,7 @@ This repository contains a Python module with the current [BoB](https://bob.samt
 
 ## Usage
 
-`bobify` includes test and production keys and metadata URLs from Swedish Samtrafiken. Usage examples below.
+`bobifi` includes test and production keys and metadata URLs from Swedish Samtrafiken. Usage examples below.
 
     >>> from bobifi.samtrafiken import trusted_jwks, metadata_url, where
 
