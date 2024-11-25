@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "bobifi"
-version = "2024.6.6"
+version = "2024.11.25"
 description = "BoB Metadata Keys and URLs"
 authors = ["Jakob Schlyter <jakob@kirei.se>"]
 license = "BSD-2-Clause"
@@ -10,7 +10,6 @@ include = ["bobifi/data/*.json"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
-setuptools = ">=70.0.0"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.2.1"
