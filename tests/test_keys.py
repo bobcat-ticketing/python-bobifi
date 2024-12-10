@@ -1,19 +1,24 @@
 import os
 
 import pytest
-from cryptojwt.jwx import key_from_jwk_dict
+from jwcrypto.jwk import JWK
 
 from bobifi.samtrafiken import trusted_jwks, where
 
 
+def _test_jwks(env: str) -> None:
+    keys = [JWK(**key) for key in trusted_jwks(env=env)["keys"]]
+    for key in keys:
+        print(f"env={env}, key={key.export()}")
+    os.stat(where(env=env))
+
+
 def test_jwks_test():
-    _ = [key_from_jwk_dict(k) for k in trusted_jwks(env="test")["keys"]]
-    os.stat(where(env="test"))
+    _test_jwks(env="test")
 
 
 def test_jwks_prod():
-    _ = [key_from_jwk_dict(k) for k in trusted_jwks(env="prod")["keys"]]
-    os.stat(where(env="prod"))
+    _test_jwks(env="prod")
 
 
 def test_jwks_unknown():

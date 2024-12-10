@@ -1,15 +1,28 @@
+import json
+
 import httpx
 import pytest
-from cryptojwt import JWS
-from cryptojwt.jwx import key_from_jwk_dict
+from jwcrypto.jws import JWS
 
-from bobifi.samtrafiken import metadata_url, trusted_jwks
+from bobifi.samtrafiken import metadata_url, trusted_jwkset
 
 
 def verify_metadata(env: str, content: str):
     jws = JWS()
-    trusted_keys = [key_from_jwk_dict(k) for k in trusted_jwks(env=env)["keys"]]
-    _ = jws.verify_json(content, keys=trusted_keys, at_least_one=True)
+    jws.deserialize(content)
+
+    signatures = jws.objects["signatures"]
+    print(f"{len(signatures)} signatures found")
+    for signature in signatures:
+        protected_header = json.loads(signature["protected"])
+        kid = protected_header["kid"]
+        serial = protected_header["serial"]
+        not_valid_before = protected_header["notvalidbefore"]
+        not_valid_after = protected_header["notvalidafter"]
+        print(
+            f"- {kid} serial {serial} valid from {not_valid_before} to {not_valid_after}"
+        )
+    jws.verify(trusted_jwkset(env=env))
 
 
 def test_metadata_test():
