@@ -18,7 +18,6 @@ wheels = [
 
 [[package]]
 name = "bobifi"
-version = "2024.11.25"
 source = { editable = "." }
 
 [package.dev-dependencies]

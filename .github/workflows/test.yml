@@ -34,7 +34,5 @@ jobs:
         with:
           version: latest
           enable-cache: true
-      - name: Install dependencies
-        run: make depend
-      - name: Test with pytest
+      - name: Run tests
         run: make test
