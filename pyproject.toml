@@ -1,26 +1,31 @@
-[tool.poetry]
+[project]
 name = "bobifi"
-version = "2024.11.25"
 description = "BoB Metadata Keys and URLs"
-authors = ["Jakob Schlyter <jakob@kirei.se>"]
+authors = [
+    {name = "Jakob Schlyter", email="jakob@kirei.se"},
+]
+dynamic = ["version"]
 license = "BSD-2-Clause"
 repository = "https://github.com/bobcat-ticketing/python-bobifi'"
 readme = "README.md"
 include = ["bobifi/data/*.json"]
-
-[tool.poetry.dependencies]
-python = "^3.9"
-
-[tool.poetry.group.dev.dependencies]
-pytest = "^8.2.1"
-pytest-ruff = "^0.3.2"
-cryptojwt = "^1.8.3"
-httpx = "^0.24.1"
-ruff = ">=0.4.7"
+requires-python = "<4.0,>=3.11"
 
 [build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling", "uv-dynamic-versioning"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+source = "uv-dynamic-versioning"
+
+[dependency-groups]
+dev = [
+    "cryptojwt>=1.10.0",
+    "httpx>=0.28.1",
+    "pytest>=8.4.2",
+    "pytest-ruff>=0.5",
+    "ruff>=0.13.1",
+]
 
 [tool.ruff.lint]
 select = [
