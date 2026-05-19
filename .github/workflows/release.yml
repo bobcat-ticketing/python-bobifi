@@ -14,10 +14,13 @@ jobs:
     permissions:
       id-token: write
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-      - name: Install and configure Poetry
-        run: pip install poetry
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+      - name: Install the latest version of uv
+        uses: astral-sh/setup-uv@v7
+        with:
+          version: latest
+          enable-cache: true
       - name: Publish package
         run: uv build --wheel
       - name: Publish package distributions to PyPI
