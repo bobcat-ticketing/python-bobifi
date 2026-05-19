@@ -36,4 +36,3 @@ This repository contains a Python module with the current [BoB](https://bob.samt
 
 
 For Samtrafiken, the `test` and `prod` environments are currently defined. The `prod` environment is used as default.
-
